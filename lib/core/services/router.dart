@@ -7,6 +7,9 @@ import 'package:humancattranslate/src/on_boarding/presentation/cubit/on_boarding
 import 'package:humancattranslate/src/on_boarding/presentation/views/onboarding_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../src/translate/presentation/view/translate_result_screen.dart';
+import '../../src/translate/presentation/view/translate_screen_mic.dart';
+
 Route<dynamic> ongenerateRoute(RouteSettings settings) {
   switch (settings.name) {
     case '/':
@@ -20,11 +23,20 @@ Route<dynamic> ongenerateRoute(RouteSettings settings) {
             );
           }
           return const Skeleton();
-
         },
         settings: settings,
       );
 
+    case TranslateScreenMic.routeName:
+      return _pageBuilder(
+        (_) => const TranslateScreenMic(),
+        settings: settings,
+      );
+    case TranslateResultScreen.routeName:
+      return _pageBuilder(
+        (_) => const TranslateResultScreen(),
+        settings: settings,
+      );
     // case SignUpScreen.routeName:
     //   return _pageBuilder(
     //     (_) => BlocProvider(
