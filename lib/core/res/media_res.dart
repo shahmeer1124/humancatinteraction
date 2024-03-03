@@ -10,6 +10,7 @@ class MediaRes {
   static const kitty2 = '$_baseIcon/kitty2.jpg';
   static const kitty3 = '$_baseIcon/kitty3.jpg';
   static const cat = '$_baseIcon/cat.png';
+  static const dog = '$_baseIcon/shiba.png';
   static const human = '$_baseIcon/boy.png';
 
   static const profile = '$_baseIcon/profile.jpg';

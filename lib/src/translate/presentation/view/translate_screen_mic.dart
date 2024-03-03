@@ -1,13 +1,20 @@
+import 'dart:math';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:humancattranslate/core/extension/context_extension.dart';
 import 'package:humancattranslate/core/res/colors.dart';
 import 'package:humancattranslate/core/res/media_res.dart';
+import 'package:humancattranslate/core/utils/typedef.dart';
 import 'package:humancattranslate/src/translate/presentation/bloc/translate_cubit.dart';
+import 'package:humancattranslate/src/translate/presentation/view/translate_result_screen.dart';
 import 'package:humancattranslate/src/translate/presentation/widgets/stop_watch.dart';
 import 'package:iconly/iconly.dart';
 import 'package:lottie/lottie.dart';
+
+import '../../../../core/sounds_data/sounds_data.dart';
 
 class TranslateScreenMic extends StatefulWidget {
   const TranslateScreenMic({super.key});
@@ -21,6 +28,20 @@ class TranslateScreenMic extends StatefulWidget {
 class _TranslateScreenMicState extends State<TranslateScreenMic>
     with TickerProviderStateMixin {
   late final AnimationController _controller;
+  int randomVal = 0;
+  final random = Random();
+  String? operation;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print('Hello it worled');
+
+    final arguments = ModalRoute.of(context)?.settings.arguments as DataMap?;
+    if (arguments != null) {
+      operation = arguments['operation'] as String;
+    }
+  }
 
   @override
   void initState() {
@@ -43,11 +64,12 @@ class _TranslateScreenMicState extends State<TranslateScreenMic>
       value: TranslateCubit(),
       child: Scaffold(
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white),
           backgroundColor: Colours.primaryColor,
           centerTitle: true,
           title: Text(
             'Record',
-            style: appstyle(18, Colors.black, FontWeight.normal),
+            style: appstyle(18, Colors.white, FontWeight.normal),
           ),
           automaticallyImplyLeading: true,
         ),
@@ -89,7 +111,102 @@ class _TranslateScreenMicState extends State<TranslateScreenMic>
                   if (state.state == TranslateStates.listening) {
                     return GestureDetector(
                         onTap: () {
+                          randomVal = 0;
+                          randomVal = random.nextInt(49);
+
                           context.read<TranslateCubit>().stopListening();
+                          if (operation == 'htc' &&
+                              stopwatch.elapsed.inSeconds >= 3) {
+                            Navigator.of(context)
+                                .pushNamed(TranslateResultScreen.routeName);
+                          } else if (operation == 'cth' &&
+                              stopwatch.elapsed.inSeconds >= 3) {
+                            showModalBottomSheet(
+                                context: context,
+                                builder: (contexts) {
+                                  return Container(
+                                    width: context.width,
+                                    decoration: const BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(19),
+                                        topRight: Radius.circular(19),
+                                      ),
+                                    ),
+                                    height: 500.h,
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          margin: EdgeInsets.only(top: 70.h),
+                                          height: 150,
+                                          width: 150,
+                                          child: CachedNetworkImage(
+                                            imageUrl: SoundsData
+                                                .catImagesAddress[randomVal],
+                                            progressIndicatorBuilder: (context,
+                                                    url, downloadProgress) =>
+                                                CircularProgressIndicator(
+                                                    value: downloadProgress
+                                                        .progress),
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    const Icon(Icons.error),
+                                            imageBuilder:
+                                                (context, imageProvider) =>
+                                                    ClipRRect(
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                      Radius.circular(3)),
+                                              child: Image(
+                                                image: imageProvider,
+                                                height: 120,
+                                                width: 120,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 20,
+                                        ),
+                                        SizedBox(
+                                          width: context.width,
+                                          child: Center(
+                                            child: Text(
+                                              SoundsData.petMessages[randomVal],
+                                              style: appstyle(19, Colors.black,
+                                                  FontWeight.normal),
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  );
+                                });
+                          } else {
+                            showModalBottomSheet(
+                                context: context,
+                                builder: (contexts) {
+                                  return Container(
+                                    width: context.width,
+                                    decoration: const BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(19),
+                                        topRight: Radius.circular(19),
+                                      ),
+                                    ),
+                                    height: 500.h,
+                                    child: Center(
+                                      child: Text(
+                                        "Message is not recorded properly",
+                                        style: appstyle(
+                                            20, Colors.red, FontWeight.bold),
+                                      ),
+                                    ),
+                                  );
+                                });
+                          }
                         },
                         child: CircleAvatar(
                           radius: 60,
@@ -125,7 +242,7 @@ class _TranslateScreenMicState extends State<TranslateScreenMic>
               BlocBuilder<TranslateCubit, TranslateState>(
                 builder: (context, state) {
                   if (state.state == TranslateStates.listening) {
-                    return StopwatchWidget();
+                    return const StopwatchWidget();
                   } else {
                     return Text(
                       'Tap mic to talk',

@@ -1,10 +1,10 @@
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../../../core/res/colors.dart';
+import 'package:humancattranslate/core/res/colors.dart';
 
+late Stopwatch stopwatch;
 
 class StopwatchWidget extends StatefulWidget {
   const StopwatchWidget({super.key});
@@ -14,28 +14,25 @@ class StopwatchWidget extends StatefulWidget {
 }
 
 class StopwatchWidgetState extends State<StopwatchWidget> {
-  late Stopwatch _stopwatch;
   late Timer _timer;
 
   @override
   void initState() {
     super.initState();
-    _stopwatch = Stopwatch()..start();
+    stopwatch = Stopwatch()..start();
     _startTimer();
   }
 
   void _startTimer() {
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      setState(() {
-
-      });
+      setState(() {});
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      '${_stopwatch.elapsed.inMinutes}:${(_stopwatch.elapsed.inSeconds % 60).toString().padLeft(2, '0')}',
+      '${stopwatch.elapsed.inMinutes}:${(stopwatch.elapsed.inSeconds % 60).toString().padLeft(2, '0')}',
       style: appstyle(18, Colors.black, FontWeight.normal),
     );
   }

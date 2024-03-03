@@ -21,20 +21,7 @@ class _TranslateViewState extends State<TranslateView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Builder(
-          builder: (context) {
-            return GestureDetector(
-              onTap: () {
-                Scaffold.of(context).openDrawer();
-              },
-              child: const Icon(
-                Icons.menu,
-                color: Colors.white,
-                size: 24,
-              ),
-            );
-          },
-        ),
+      automaticallyImplyLeading: true,
         centerTitle: true,
         title: Text(
           'Meow Interpreter',
