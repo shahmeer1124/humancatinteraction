@@ -411,7 +411,7 @@ class SoundsData {
     'Funky Carioca',
     'El Billete',
     'July',
-    'Give My Regards To Broadway',
+    'Give My Regards',
     'Camptown Races',
     'I wonder',
     'you scream'

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:humancattranslate/core/skeleton/providers/selected_page_provider.dart';
 import 'package:humancattranslate/src/dashboard/presentation/view/dashboard.dart';
-import 'package:humancattranslate/src/songs/presentation/view/songs_view.dart';
 import 'package:humancattranslate/src/translate/presentation/view/translation_view.dart';
 import 'package:provider/provider.dart';
+import 'package:humancattranslate/src/songs/presentation/view/all_songs_list.dart';
 
 List<Widget> pages = [
   const DashBoardScreen(),
   const TranslateView(),
   const DashBoardScreen(),
-  const SongsView(),
+  const AllSongsListView(),
 ];
 
 class Skeleton extends StatelessWidget {
