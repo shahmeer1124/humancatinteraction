@@ -107,12 +107,12 @@ class SoundsData {
     'Dazzling',
   ];
   static const List<String> catImagesAddress = [
-    'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=600'
-        'https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&w=600'
-        'https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg?auto=compress&cs=tinysrgb&w=600'
-        'https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg?auto=compress&cs=tinysrgb&w=600'
-        'https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg?auto=compress&cs=tinysrgb&w=600'
-        'https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg?auto=compress&cs=tinysrgb&w=600'
+    'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg?auto=compress&cs=tinysrgb&w=600',
         'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600',
     'https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg?auto=compress&cs=tinysrgb&w=600',
     'https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -132,7 +132,7 @@ class SoundsData {
     'https://images.pexels.com/photos/1472999/pexels-photo-1472999.jpeg?auto=compress&cs=tinysrgb&w=600',
     'https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?auto=compress&cs=tinysrgb&w=600',
     'https://images.pexels.com/photos/2061057/pexels-photo-2061057.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/257532/pexels-photo-257532.jpeg?auto=compress&cs=tinysrgb&w=600'
+    'https://images.pexels.com/photos/257532/pexels-photo-257532.jpeg?auto=compress&cs=tinysrgb&w=600',
         'https://images.pexels.com/photos/821736/pexels-photo-821736.jpeg?auto=compress&cs=tinysrgb&w=600',
     'https://images.pexels.com/photos/68594/pexels-photo-68594.jpeg?auto=compress&cs=tinysrgb&w=600',
     'https://images.pexels.com/photos/1521306/pexels-photo-1521306.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -365,5 +365,55 @@ class SoundsData {
     "I can't wait for our next adventure!",
     "Can I sleep on the bed tonight?",
     "I'm so lucky to have you as my human!",
+  ];
+  static const List<String> songsPath = [
+    'https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Kazoom%20-%20Quincas%20Moreira.mp3?alt=media&token=5f57e3fe-e536-4fd0-8682-3c5e740ca779',
+    'https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Cats%20and%20Gats%20-%20Dyalla.mp3?alt=media&token=5735e806-43d8-4527-b82b-e4d8b8a270fd',
+    'https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Gold%20in%20Them%20Hills%20-%20Nathan%20Moore.mp3?alt=media&token=c9f7c485-7875-46c4-beb3-09c46cbb1239',
+    'https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Cats%20Searching%20for%20the%20Truth%20-%20Nat%20Keefe%20%26%20Hot%20Buttered%20Rum.mp3?alt=media&token=9fbbe2bf-a6fe-4068-b0fb-119e10b53e6d',
+    'https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Sweethearts%20-%20TrackTribe.mp3?alt=media&token=061a78ea-f40f-4c80-aa66-916eafbd52cd',
+    'https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Woodshedder%20-%20Quincas%20Moreira.mp3?alt=media&token=f1a310ca-01b0-4b9e-92fb-6404d1639d5d',
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Don't%20Fret%20-%20Quincas%20Moreira.mp3?alt=media&token=027c86d1-b43b-499a-a357-f46150bf7c4a",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Los%20Encinos%20-%20Quincas%20Moreira.mp3?alt=media&token=e4c7aaec-c0fd-46b0-9733-10a774f24ca6",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Two%20Hearts%20-%20TrackTribe.mp3?alt=media&token=ad1666b0-cbb2-452b-990f-bd5ccab0c3ac",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Two%20Little%20Bums%20-%20The%20Great%20North%20Sound%20Society.mp3?alt=media&token=9a810cfd-29f6-456c-b55c-3a35d700f85d",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Little%20Umbrellas%20-%20TrackTribe.mp3?alt=media&token=ba0f4437-397d-4204-8571-298dccbc9b1d",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Pioneers%20-%20TrackTribe.mp3?alt=media&token=692813c9-158a-4656-801b-6e09524f732c",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Bossa%20Sonsa%20-%20Quincas%20Moreira.mp3?alt=media&token=b0f5beb2-fa50-4c38-ba6c-72a32ab8492f",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/La%20Docerola%20-%20Quincas%20Moreira.mp3?alt=media&token=98be1a9a-33f7-42ab-b14d-9670be91d46c",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Nature%20Nurture%20-%20Quincas%20Moreira.mp3?alt=media&token=faf72407-8a3a-465d-84ad-6db1ae13e1de",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Lazy%20Laura%20-%20Quincas%20Moreira.mp3?alt=media&token=5f2bd8a4-3c6b-4773-8bfd-6baab2c9b6b8",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Funky%20Carioca%20-%20Quincas%20Moreira.mp3?alt=media&token=2c78297e-cec8-4ce2-b003-9a295987ffaf",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/El%20Billete%20-%20Edgar%20Lopez%20and%20Quincas%20Moreira.mp3?alt=media&token=13827256-48cf-45d4-9fc6-bca9729d133f",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/July%20-%20John%20Patitucci.mp3?alt=media&token=3bd21ee2-0cad-41e8-9d5b-e5c3a56e1ab2",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Give%20My%20Regards%20To%20Broadway%20-%20Freedom%20Trail%20Studio.mp3?alt=media&token=e4cdcd43-8bd7-4494-98e4-3bc8b871baf7",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/Camptown%20Races%20-%20Freedom%20Trail%20Studio.mp3?alt=media&token=2265f74b-a34f-492a-8288-3d423894f811",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/I%20Wonder%20Whose%20Kissing%20Her%20Now%20-%20Freedom%20Trail%20Studio.mp3?alt=media&token=3e0ee1b7-00a0-4faf-a54c-c3452f199c8a",
+    "https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/You%20Scream%20I%20Scream%20We%20All%20Scream%20For%20Ice%20Cream%20-%20Freedom%20Trail%20Studio.mp3?alt=media&token=2cac654d-9a2c-4c4f-a98d-a49072340cb6",
+  ];
+  static const List<String> songsName = [
+    'Kazoom',
+    'Cats and Gats',
+    'Gold in them Hills',
+    'Cats Searching',
+    'sweethearts',
+    'woodshedder',
+    'Don"t Fret',
+    'Los Encinos',
+    'Two Hearts',
+    'Two little burns',
+    'Little Umbrella',
+    'Pioneers',
+    'Bossa Sonsa',
+    'La Docerola',
+    'Nature Nurture',
+    'Lazy Laura',
+    'Funky Carioca',
+    'El Billete',
+    'July',
+    'Give My Regards To Broadway',
+    'Camptown Races',
+    'I wonder',
+    'you scream'
   ];
 }

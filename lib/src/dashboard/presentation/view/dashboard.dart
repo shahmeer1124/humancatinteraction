@@ -138,8 +138,11 @@ class _DashBoardScreenState extends State<DashBoardScreen>
                       mainAxisSpacing: 8,
                     ),
                     itemBuilder: (context, index) {
+                      print(SoundsData.catAudioList.length);
+                      print(SoundsData.catImagesAddress.length);
                       return GestureDetector(
                         onTap: () {
+
                           AssetsAudioPlayer.newPlayer().open(
                             Audio(SoundsData.catAudioList[index]),
                             autoStart: true,
@@ -183,7 +186,7 @@ class _DashBoardScreenState extends State<DashBoardScreen>
                         ),
                       );
                     },
-                    itemCount: 40,
+                    itemCount: 50,
                   ),
                 ),
                 Container(

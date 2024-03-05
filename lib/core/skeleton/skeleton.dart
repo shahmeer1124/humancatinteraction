@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:humancattranslate/core/skeleton/providers/selected_page_provider.dart';
 import 'package:humancattranslate/src/dashboard/presentation/view/dashboard.dart';
+import 'package:humancattranslate/src/songs/presentation/view/songs_view.dart';
 import 'package:humancattranslate/src/translate/presentation/view/translation_view.dart';
 import 'package:provider/provider.dart';
 
@@ -8,7 +9,7 @@ List<Widget> pages = [
   const DashBoardScreen(),
   const TranslateView(),
   const DashBoardScreen(),
-  const DashBoardScreen(),
+  const SongsView(),
 ];
 
 class Skeleton extends StatelessWidget {
