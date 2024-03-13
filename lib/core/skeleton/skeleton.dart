@@ -8,7 +8,6 @@ import 'package:humancattranslate/src/songs/presentation/view/all_songs_list.dar
 List<Widget> pages = [
   const DashBoardScreen(),
   const TranslateView(),
-  const DashBoardScreen(),
   const AllSongsListView(),
 ];
 

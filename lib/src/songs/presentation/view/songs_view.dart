@@ -1,10 +1,12 @@
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:humancattranslate/core/extension/context_extension.dart';
 import 'package:humancattranslate/core/sounds_data/sounds_data.dart';
+import 'package:humancattranslate/src/songs/presentation/widgets/player_controls.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../widgets/player_controls.dart';
+int? indexOfSong;
 
 class PositionData {
   PositionData(
@@ -17,6 +19,7 @@ class PositionData {
 }
 
 class SongsView extends StatefulWidget {
+  static const routeName = '/songsViewScreen';
   const SongsView({super.key});
 
   @override
@@ -39,10 +42,7 @@ class _SongsViewState extends State<SongsView> {
       );
   @override
   void initState() {
-    player = AudioPlayer()
-      ..setUrl(
-          'https://firebasestorage.googleapis.com/v0/b/fbaw-486da.appspot.com/o/When%20Irish%20Eyes%20Are%20Smiling%20-%20Freedom%20Trail%20Studio.mp3?alt=media&token=2cc38e39-1dcb-4bf0-95ce-e49543ec8350');
-
+    player = AudioPlayer()..setUrl(SoundsData.songsPath[indexOfSong!]);
     super.initState();
   }
 
@@ -55,10 +55,20 @@ class _SongsViewState extends State<SongsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Container(
+        margin: EdgeInsets.only(left: 20, right: 20),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            Image.network(
+              SoundsData.catImagesAddress[indexOfSong!],
+              height: context.height * 0.5,
+              fit: BoxFit.cover,
+            ),
+            SizedBox(
+              height: context.height * 0.1,
+            ),
             StreamBuilder<PositionData>(
               stream: positionDataStream,
               builder: (context, snapshot) {
@@ -82,7 +92,10 @@ class _SongsViewState extends State<SongsView> {
             ), // StreamBuilder
             ControlsScreen(
               player: player,
-            )
+            ),
+            SizedBox(
+              height: context.height * 0.1,
+            ),
           ],
         ),
       ),

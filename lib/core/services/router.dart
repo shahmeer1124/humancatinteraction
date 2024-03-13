@@ -7,6 +7,7 @@ import 'package:humancattranslate/src/on_boarding/presentation/cubit/on_boarding
 import 'package:humancattranslate/src/on_boarding/presentation/views/onboarding_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../src/songs/presentation/view/songs_view.dart';
 import '../../src/translate/presentation/view/translate_result_screen.dart';
 import '../../src/translate/presentation/view/translate_screen_mic.dart';
 
@@ -30,6 +31,11 @@ Route<dynamic> ongenerateRoute(RouteSettings settings) {
     case TranslateScreenMic.routeName:
       return _pageBuilder(
         (_) => const TranslateScreenMic(),
+        settings: settings,
+      );
+    case SongsView.routeName:
+      return _pageBuilder(
+            (_) => const SongsView(),
         settings: settings,
       );
     case TranslateResultScreen.routeName:

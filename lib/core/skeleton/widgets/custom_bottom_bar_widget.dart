@@ -63,38 +63,38 @@ class CustomBottomBarWidget extends StatelessWidget {
             ),
             CustomBottomBarIconWidget(
               iconData: selectedPage == 2
-                  ? const Icon(
-                      IconlyBold.game,
-                      color: Colours.primaryColor,
-                    )
+                  ?  const Icon(
+                Icons.music_note_rounded,
+                color: Colours.primaryColor,
+              )
                   : const Icon(
-                      IconlyBold.game,
-                      color: Colors.grey,
-                    ),
+                Icons.music_note_rounded,
+                color: Colors.grey,
+              ),
               callback: () {
                 Provider.of<SelectedPageProvider>(context, listen: false)
                     .changePage(2);
               },
               isSelected: selectedPage == 2,
-              iconTitle: 'Game',
-            ),
-            CustomBottomBarIconWidget(
-              iconData: selectedPage == 3
-                  ? const Icon(
-                      Icons.music_note_rounded,
-                      color: Colours.primaryColor,
-                    )
-                  : const Icon(
-                      Icons.music_note_rounded,
-                      color: Colors.grey,
-                    ),
-              callback: () {
-                Provider.of<SelectedPageProvider>(context, listen: false)
-                    .changePage(3);
-              },
-              isSelected: selectedPage == 3,
               iconTitle: 'Songs',
             ),
+            // CustomBottomBarIconWidget(
+            //   iconData: selectedPage == 3
+            //       ? const Icon(
+            //           Icons.music_note_rounded,
+            //           color: Colours.primaryColor,
+            //         )
+            //       : const Icon(
+            //           Icons.music_note_rounded,
+            //           color: Colors.grey,
+            //         ),
+            //   callback: () {
+            //     Provider.of<SelectedPageProvider>(context, listen: false)
+            //         .changePage(3);
+            //   },
+            //   isSelected: selectedPage == 3,
+            //   iconTitle: 'Songs',
+            // ),
           ],
         ),
       ),
