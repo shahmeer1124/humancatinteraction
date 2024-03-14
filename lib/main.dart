@@ -4,7 +4,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:humancattranslate/core/services/injection_container.dart';
 import 'package:humancattranslate/core/services/router.dart';
 import 'package:humancattranslate/core/skeleton/providers/selected_page_provider.dart';
-import 'package:just_audio_background/just_audio_background.dart';
+
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
