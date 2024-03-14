@@ -1,4 +1,4 @@
-package com.example.humancattranslate
+package com.checksum.cattranslate
 
 import io.flutter.embedding.android.FlutterActivity
 
