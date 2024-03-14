@@ -30,11 +30,11 @@ class CustomBottomBarWidget extends StatelessWidget {
             CustomBottomBarIconWidget(
               iconData: selectedPage == 0
                   ? const Icon(
-                      IconlyBold.more_square,
+                      IconlyBold.home,
                       color: Colours.primaryColor,
                     )
                   : const Icon(
-                      IconlyBold.more_square,
+                      IconlyBold.home,
                       color: Colors.grey,
                     ),
               callback: () {
@@ -42,7 +42,7 @@ class CustomBottomBarWidget extends StatelessWidget {
                     .changePage(0);
               },
               isSelected: selectedPage == 0,
-              iconTitle: 'Sounds',
+              iconTitle: 'Home',
             ),
             CustomBottomBarIconWidget(
               iconData: selectedPage == 1

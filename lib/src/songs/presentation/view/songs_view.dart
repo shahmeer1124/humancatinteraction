@@ -1,26 +1,29 @@
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:humancattranslate/core/extension/context_extension.dart';
+import 'package:humancattranslate/core/res/colors.dart';
 import 'package:humancattranslate/core/sounds_data/sounds_data.dart';
 import 'package:humancattranslate/src/songs/presentation/widgets/player_controls.dart';
+import 'package:iconly/iconly.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:rxdart/rxdart.dart';
 
 int? indexOfSong;
 
 class PositionData {
-  PositionData(
-      {required this.position,
-      required this.bufferPosition,
-      required this.duration});
+  PositionData({
+    required this.position,
+    required this.bufferPosition,
+    required this.duration,
+  });
   final Duration position;
   final Duration bufferPosition;
   final Duration duration;
 }
 
 class SongsView extends StatefulWidget {
-  static const routeName = '/songsViewScreen';
   const SongsView({super.key});
+  static const routeName = '/songsViewScreen';
 
   @override
   State<SongsView> createState() => _SongsViewState();
@@ -55,9 +58,26 @@ class _SongsViewState extends State<SongsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.of(context).pop();
+          },
+          child: const Icon(
+            IconlyLight.arrow_left_2,
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colours.primaryColor,
+        title: Text(
+          'Player',
+          style: appstyle(18, Colors.white, FontWeight.normal),
+        ),
+      ),
       body: Container(
-        margin: EdgeInsets.only(left: 20, right: 20),
+        margin: const EdgeInsets.only(left: 20, right: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

@@ -20,8 +20,9 @@ class CatToHumanTranslate extends StatelessWidget {
       onTap: callback,
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.grey.withOpacity(0.15),
-            borderRadius: const BorderRadius.all(Radius.circular(5))),
+          color: Colors.grey.withOpacity(0.15),
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
+        ),
         height: context.height * 0.11,
         width: context.width,
         margin: const EdgeInsets.only(left: 10, right: 10),
@@ -37,7 +38,7 @@ class CatToHumanTranslate extends StatelessWidget {
               Image.asset(
                 rightIconPath,
                 height: 40,
-              )
+              ),
             ],
           ),
         ),

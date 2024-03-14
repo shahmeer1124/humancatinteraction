@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:humancattranslate/core/services/injection_container.dart';
 import 'package:humancattranslate/core/services/router.dart';
 import 'package:humancattranslate/core/skeleton/providers/selected_page_provider.dart';
@@ -8,11 +9,7 @@ import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await JustAudioBackground.init(
-  //   androidNotificationChannelId: 'com.ryanheise.bg_demo.channel.audio',
-  //   androidNotificationChannelName: 'Audio playback',
-  //   androidNotificationOngoing: true,
-  // );
+  await MobileAds.instance.initialize();
   await init();
   runApp(const MyApp());
 }

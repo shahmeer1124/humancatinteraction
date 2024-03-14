@@ -4,17 +4,17 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:humancattranslate/core/extension/context_extension.dart';
 import 'package:humancattranslate/core/res/colors.dart';
 import 'package:humancattranslate/core/res/media_res.dart';
+import 'package:humancattranslate/core/sounds_data/sounds_data.dart';
 import 'package:humancattranslate/core/utils/typedef.dart';
 import 'package:humancattranslate/src/translate/presentation/bloc/translate_cubit.dart';
 import 'package:humancattranslate/src/translate/presentation/view/translate_result_screen.dart';
 import 'package:humancattranslate/src/translate/presentation/widgets/stop_watch.dart';
 import 'package:iconly/iconly.dart';
 import 'package:lottie/lottie.dart';
-
-import '../../../../core/sounds_data/sounds_data.dart';
 
 class TranslateScreenMic extends StatefulWidget {
   const TranslateScreenMic({super.key});
@@ -27,15 +27,35 @@ class TranslateScreenMic extends StatefulWidget {
 
 class _TranslateScreenMicState extends State<TranslateScreenMic>
     with TickerProviderStateMixin {
+  bool isNativeAdLoaded = false;
+  late NativeAd nativeAd;
   late final AnimationController _controller;
   int randomVal = 0;
   final random = Random();
   String? operation;
+  void loadNativeAd() {
+    nativeAd = NativeAd(
+      adUnitId: 'ca-app-pub-8519627525427787/1922250823',
+      listener: NativeAdListener(onAdLoaded: (ad) {
+        setState(() {
+          isNativeAdLoaded = true;
+        });
+      }, onAdFailedToLoad: (ad, err) {
+        setState(() {
+          isNativeAdLoaded = false;
+        });
+      },),
+      request: const AdRequest(),
+      nativeTemplateStyle:
+          NativeTemplateStyle(templateType: TemplateType.medium),
+    );
+    nativeAd.load();
+  }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    print('Hello it worled');
+
 
     final arguments = ModalRoute.of(context)?.settings.arguments as DataMap?;
     if (arguments != null) {
@@ -45,15 +65,17 @@ class _TranslateScreenMicState extends State<TranslateScreenMic>
 
   @override
   void initState() {
+    loadNativeAd();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     );
     super.initState();
   }
 
   @override
   void dispose() {
+    nativeAd.dispose();
     _controller.dispose();
     super.dispose();
   }
@@ -64,14 +86,13 @@ class _TranslateScreenMicState extends State<TranslateScreenMic>
       value: TranslateCubit(),
       child: Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: const IconThemeData(color: Colors.white),
           backgroundColor: Colours.primaryColor,
           centerTitle: true,
           title: Text(
             'Record',
             style: appstyle(18, Colors.white, FontWeight.normal),
           ),
-          automaticallyImplyLeading: true,
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -84,7 +105,7 @@ class _TranslateScreenMicState extends State<TranslateScreenMic>
                       child: Lottie.asset(
                         MediaRes.listeningAnimation,
                         repeat: true,
-                      ));
+                      ),);
                 }
                 return const Center(
                   child: Padding(
@@ -102,7 +123,7 @@ class _TranslateScreenMicState extends State<TranslateScreenMic>
                     ),
                   ),
                 );
-              }),
+              },),
               SizedBox(
                 height: 100.h,
               ),
@@ -144,10 +165,10 @@ class _TranslateScreenMicState extends State<TranslateScreenMic>
                                             imageUrl: SoundsData
                                                 .catImagesAddress[randomVal],
                                             progressIndicatorBuilder: (context,
-                                                    url, downloadProgress) =>
+                                                    url, downloadProgress,) =>
                                                 CircularProgressIndicator(
                                                     value: downloadProgress
-                                                        .progress),
+                                                        .progress,),
                                             errorWidget:
                                                 (context, url, error) =>
                                                     const Icon(Icons.error),
@@ -156,7 +177,7 @@ class _TranslateScreenMicState extends State<TranslateScreenMic>
                                                     ClipRRect(
                                               borderRadius:
                                                   const BorderRadius.all(
-                                                      Radius.circular(3)),
+                                                      Radius.circular(3),),
                                               child: Image(
                                                 image: imageProvider,
                                                 height: 120,
@@ -175,14 +196,14 @@ class _TranslateScreenMicState extends State<TranslateScreenMic>
                                             child: Text(
                                               SoundsData.petMessages[randomVal],
                                               style: appstyle(19, Colors.black,
-                                                  FontWeight.normal),
+                                                  FontWeight.normal,),
                                             ),
                                           ),
                                         )
-                                      ],
+                                      ,],
                                     ),
                                   );
-                                });
+                                },);
                           } else {
                             showModalBottomSheet(
                                 context: context,
@@ -199,13 +220,13 @@ class _TranslateScreenMicState extends State<TranslateScreenMic>
                                     height: 500.h,
                                     child: Center(
                                       child: Text(
-                                        "Message is not recorded properly",
+                                        'Message is not recorded properly',
                                         style: appstyle(
-                                            20, Colors.red, FontWeight.bold),
+                                            20, Colors.red, FontWeight.bold,),
                                       ),
                                     ),
                                   );
-                                });
+                                },);
                           }
                         },
                         child: CircleAvatar(
@@ -218,7 +239,7 @@ class _TranslateScreenMicState extends State<TranslateScreenMic>
                                   appstyle(18, Colors.black, FontWeight.bold),
                             ),
                           ),
-                        ));
+                        ),);
                   }
                   return ElevatedButton(
                     style: ButtonStyle(
@@ -226,7 +247,7 @@ class _TranslateScreenMicState extends State<TranslateScreenMic>
                         Size(
                             context.width * 0.5,
                             context.height *
-                                0.08), // Adjust the width and height as needed
+                                0.08,), // Adjust the width and height as needed
                       ),
                     ),
                     onPressed: () {
@@ -251,12 +272,22 @@ class _TranslateScreenMicState extends State<TranslateScreenMic>
                   }
                 },
               ),
-              Container(
-                decoration: BoxDecoration(border: Border.all()),
-                margin: EdgeInsets.only(top: 30.h, left: 20.w, right: 20.w),
-                height: context.height * 0.3,
-                width: context.width,
-              )
+              if (!isNativeAdLoaded)
+                Container(
+                  decoration:
+                      BoxDecoration(border: Border.all(color: Colors.grey)),
+                  margin: EdgeInsets.only(
+                      top: 5.h, left: 10.h, right: 10.h, bottom: 5.h,),
+                  height: context.height * 0.25.h,
+                  width: context.width,
+                  child: const Center(),
+                )
+              else
+                SizedBox(
+                  width: context.width,
+                  height: context.height * 0.45,
+                  child: AdWidget(ad: nativeAd),
+                ),
             ],
           ),
         ),
